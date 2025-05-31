@@ -8,19 +8,15 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *
+ * Subclase CuentaCredito de Cuentas
  * @author jennifer y guiselle
  */
-
+//Limite credito
 public class CuentaCredito extends Cuentas {
     
     //Constructor
     public CuentaCredito(String numeroCuenta) {    
         super(numeroCuenta);
-    }
-
-    public CuentaCredito(String numeroCuenta, int saldoCuenta) {
-        super(numeroCuenta, saldoCuenta);
     }
 
     
@@ -48,7 +44,7 @@ public class CuentaCredito extends Cuentas {
         }
         
         saldoCuenta += deposito;
-        System.out.println("¡Depósito realizado con éxito!");
+        System.out.println("¡Depósito realizado con éxito en su Cuenta de Crédito!");
         System.out.println("Su saldo actual es $" + saldoCuenta + " pesos.");
     }
     
@@ -83,14 +79,14 @@ public class CuentaCredito extends Cuentas {
         }
         
         saldoCuenta -= giro;
-        System.out.println("¡Giro realizado con éxito!");
+        System.out.println("¡Giro realizado con éxito desde su Cuenta de Crédito!");
         System.out.println("Su saldo actual es $" + saldoCuenta + " pesos.");
     }
     
     
     @Override
     public void consultarSaldo() {
-        System.out.println("Su saldo actual es de $" + saldoCuenta + " pesos.");
+        System.out.println("El saldo actual de su Cuenta de Crédito es de $" + saldoCuenta + " pesos.");
     }
 
 }

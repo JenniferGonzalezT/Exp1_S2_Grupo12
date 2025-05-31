@@ -89,7 +89,34 @@ public class Exp1_S2_Grupo12 {
     
     static void registrarCliente() {
         System.out.println("\n\n=============== REGISTRAR CLIENTE ==============");
-        System.out.println("Para registrarse deberá ingresar los siguientes datos:");
+        System.out.println("¿Qué tipo de cuenta desea registrar?");
+        System.out.println("(1) Cuenta Corriente");
+        System.out.println("(2) Cuenta de Ahorro");
+        System.out.println("(3) Cuenta de Crédito");
+        
+        final byte CANT_OPCIONES = 3;
+        int opcion = 0;
+        boolean opcionValida = false;
+        String mensajeError = "La opción ingresada no es válida.\nRecuerde ingresar un número de 1 a " + CANT_OPCIONES;
+        
+        while (!opcionValida) {
+            System.out.print("\nIngrese el número correspondiente a su opción: ");
+            try {
+                opcion = scanner.nextByte();
+                if (opcion > 0 && opcion <= CANT_OPCIONES) {
+                    opcionValida = true;
+                } else {
+                    System.out.println(mensajeError);
+                }
+            } catch (InputMismatchException e) {
+                System.out.println(mensajeError);
+            } finally {
+                scanner.nextLine();
+            }
+        }
+        
+        
+        System.out.println("\nPara registrarse deberá ingresar los siguientes datos:");
         
         String rut = "";
         String nombre;
@@ -100,7 +127,6 @@ public class Exp1_S2_Grupo12 {
         String telefono = "";
         String numeroCuenta = "";
         boolean datoValido = false;
-        String mensajeError;
         
         //Rut
         mensajeError = "El Rut ingresado no es válido. Intente nuevamente.";
@@ -112,7 +138,7 @@ public class Exp1_S2_Grupo12 {
                     for (Cliente cliente : clientes) {
                         if (cliente.getRut().equals(rut)) {
                             System.out.println("Ya existe un cliente registrado con el Rut " + rut + ".");
-                            System.out.println("Ahora regresaras al menú.");
+                            System.out.println("Ahora regresará al menú.");
                             return;
                         }
                     }
@@ -130,18 +156,15 @@ public class Exp1_S2_Grupo12 {
         
         //Nombre
         System.out.print("\n-> Nombre: ");
-        nombre = scanner.next();
-        scanner.nextLine();
+        nombre = scanner.nextLine();
         
         //Apellido Paterno
         System.out.print("\n-> Apellido Paterno: ");
-        apellidoPaterno = scanner.next();
-        scanner.nextLine();
+        apellidoPaterno = scanner.nextLine();
         
         //Apellido Materno
         System.out.print("\n-> Apellido Materno: ");
-        apellidoMaterno = scanner.next();
-        scanner.nextLine();
+        apellidoMaterno = scanner.nextLine();
         
         //Domicilio
         System.out.print("\n-> Domicilio: ");
@@ -174,7 +197,7 @@ public class Exp1_S2_Grupo12 {
         datoValido = false;
         mensajeError = "El Número de Cuenta ingresado no es válido. Intente nuevamente.";
         while (!datoValido) {
-            System.out.print("\n-> Número de cuenta corriente (ej: 123456789): ");
+            System.out.print("\n-> Número de cuenta (ej: 123456789): ");
             try {
                 numeroCuenta = scanner.next();
                 if (numeroCuenta.length() == 9) {
@@ -189,7 +212,20 @@ public class Exp1_S2_Grupo12 {
             }
         }
         
-        CuentaCorriente cuenta = new CuentaCorriente(numeroCuenta);
+        
+        Cuentas cuenta = null;
+        switch (opcion) {
+            case 1:
+                cuenta = new CuentaCorriente(numeroCuenta);
+                break;
+            case 2:
+                cuenta = new CuentaAhorro(numeroCuenta);
+                break;
+            case 3:
+                cuenta = new CuentaCredito(numeroCuenta);
+                break;
+        }
+        
         Cliente cliente = new Cliente(rut, nombre, apellidoPaterno, apellidoMaterno, domicilio, comuna, telefono, cuenta);
         clientes.add(cliente);
         System.out.println("\n¡Cliente registrado con éxito!");
@@ -236,7 +272,7 @@ public class Exp1_S2_Grupo12 {
         
         Cliente cliente = buscarCliente();
         if (cliente != null) {
-            cliente.datosCliente();
+            cliente.mostrarInformacion();
         } else {
             System.out.println("Cliente no encontrado.\nAhora regresará al menú.");
         }

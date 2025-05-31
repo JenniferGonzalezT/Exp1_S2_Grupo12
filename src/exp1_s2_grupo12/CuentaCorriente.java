@@ -8,7 +8,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Clase Cuenta Corriente
+ * Subclase CuentaCorriente de Cuentas
  * @author jennifer y guiselle
  */
 
@@ -17,10 +17,6 @@ public class CuentaCorriente extends Cuentas {
     //Constructor
     public CuentaCorriente(String numeroCuenta) {    
         super(numeroCuenta);
-    }
-
-    public CuentaCorriente(String numeroCuenta, int saldoCuenta) {
-        super(numeroCuenta, saldoCuenta);
     }
 
     
@@ -48,7 +44,7 @@ public class CuentaCorriente extends Cuentas {
         }
         
         saldoCuenta += deposito;
-        System.out.println("¡Depósito realizado con éxito!");
+        System.out.println("¡Depósito realizado con éxito en su Cuenta Corriente!");
         System.out.println("Su saldo actual es $" + saldoCuenta + " pesos.");
     }
     
@@ -83,14 +79,14 @@ public class CuentaCorriente extends Cuentas {
         }
         
         saldoCuenta -= giro;
-        System.out.println("¡Giro realizado con éxito!");
+        System.out.println("¡Giro realizado con éxito desde su Cuenta Corriente!");
         System.out.println("Su saldo actual es $" + saldoCuenta + " pesos.");
     }
     
     
     @Override
     public void consultarSaldo() {
-        System.out.println("Su saldo actual es de $" + saldoCuenta + " pesos.");
+        System.out.println("El saldo actual en su Cuenta Corriente es de $" + saldoCuenta + " pesos.");
     }
 
 }

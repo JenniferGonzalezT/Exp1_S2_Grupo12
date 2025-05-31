@@ -17,7 +17,10 @@ public abstract class Cuentas {
     protected int saldoCuenta;
 
     
-    //Contructor
+    //Contructores sobrecargados
+    public Cuentas() {
+    }
+
     public Cuentas(String numeroCuenta) {
         this.numeroCuenta = numeroCuenta;
         this.saldoCuenta = 0;

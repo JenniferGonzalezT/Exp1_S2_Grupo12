@@ -9,14 +9,14 @@ package exp1_s2_grupo12;
  * @author jennifer y guiselle
  */
 
-public class Cliente {
+public class Cliente implements Mostrar {
     // Atributos encapsulados
     private String rut, nombre, apellidoPaterno, apellidoMaterno, domicilio, comuna, telefono;
-    private CuentaCorriente cuenta;
+    private Cuentas cuenta;
     
     
     // Constructor
-    public Cliente(String rut, String nombre, String apellidoPaterno, String apellidoMaterno, String domicilio, String comuna, String telefono, CuentaCorriente cuenta) {
+    public Cliente(String rut, String nombre, String apellidoPaterno, String apellidoMaterno, String domicilio, String comuna, String telefono, Cuentas cuenta) {
         this.rut = rut;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
@@ -85,17 +85,18 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public CuentaCorriente getCuenta() {
+    public Cuentas getCuenta() {
         return cuenta;
     }
 
-    public void setCuenta(CuentaCorriente cuenta) {
+    public void setCuenta(Cuentas cuenta) {
         this.cuenta = cuenta;
     }
 
     
-    // Métodos Customer
-    public void datosCliente() {
+    // Método implementado de la interfaz Mostrar
+    @Override
+    public void mostrarInformacion() {
         System.out.println("\nRut: " + rut);
         System.out.println("Nombre: " + nombre);
         System.out.println("Apellido Paterno: " + apellidoPaterno);
@@ -103,7 +104,7 @@ public class Cliente {
         System.out.println("Domicilio: " + domicilio);
         System.out.println("Comuna: " + comuna);
         System.out.println("Teléfono: " + telefono);
-        System.out.println("Número de cuenta corriente: " + cuenta.getNumeroCuenta());
+        System.out.println("Número de cuenta: " + cuenta.getNumeroCuenta());
         System.out.println("Saldo Actual: $" + cuenta.getSaldoCuenta() + " pesos.");
     }
     

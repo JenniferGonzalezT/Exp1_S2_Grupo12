@@ -12,38 +12,20 @@ import java.util.Scanner;
  * @author jennifer y guiselle
  */
 
-public class CuentaCorriente {
-    // Atributos encapsulados
-    private String numeroCuenta;
-    private int saldoCuenta;
-    
+public class CuentaCorriente extends Cuentas {
     
     //Constructor
-    public CuentaCorriente(String numeroCuenta) {
-        this.numeroCuenta = numeroCuenta;
-        this.saldoCuenta = 0;
-    }
-    
-    
-    // Métodos Getter y Setter
-    public String getNumeroCuenta() {
-        return numeroCuenta;
+    public CuentaCorriente(String numeroCuenta) {    
+        super(numeroCuenta);
     }
 
-    public void setNumeroCuenta(String numeroCuenta) {
-        this.numeroCuenta = numeroCuenta;
+    public CuentaCorriente(String numeroCuenta, int saldoCuenta) {
+        super(numeroCuenta, saldoCuenta);
     }
 
-    public int getSaldoCuenta() {
-        return saldoCuenta;
-    }
-
-    public void setSaldoCuenta(int saldoCuenta) {
-        this.saldoCuenta = saldoCuenta;
-    }
     
-    
-    // Métodos Customer
+    //Métodos heredados de la clase abstracta
+    @Override
     public void depositar(Scanner scanner) {
         boolean depositoValido = false;
         int deposito = 0;
@@ -71,6 +53,7 @@ public class CuentaCorriente {
     }
     
     
+    @Override
     public void girar(Scanner scanner) {
         if (saldoCuenta <= 0) {
             System.out.println("No tiene dinero en su cuenta para realizar un giro.");
@@ -105,8 +88,9 @@ public class CuentaCorriente {
     }
     
     
+    @Override
     public void consultarSaldo() {
         System.out.println("Su saldo actual es de $" + saldoCuenta + " pesos.");
     }
-    
+
 }

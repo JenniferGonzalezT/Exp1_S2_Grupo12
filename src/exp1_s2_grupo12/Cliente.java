@@ -6,6 +6,7 @@ package exp1_s2_grupo12;
 
 /**
  * Clase Cliente
+ * 
  * @author jennifer y guiselle
  */
 
@@ -13,10 +14,10 @@ public class Cliente implements Mostrar {
     // Atributos encapsulados
     private String rut, nombre, apellidoPaterno, apellidoMaterno, domicilio, comuna, telefono;
     private Cuentas cuenta;
-    
-    
+
     // Constructor
-    public Cliente(String rut, String nombre, String apellidoPaterno, String apellidoMaterno, String domicilio, String comuna, String telefono, Cuentas cuenta) {
+    public Cliente(String rut, String nombre, String apellidoPaterno, String apellidoMaterno, String domicilio,
+            String comuna, String telefono, Cuentas cuenta) {
         this.rut = rut;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
@@ -26,8 +27,7 @@ public class Cliente implements Mostrar {
         this.telefono = telefono;
         this.cuenta = cuenta;
     }
-    
-    
+
     // Métodos Getter y Setter
     public String getRut() {
         return rut;
@@ -93,7 +93,6 @@ public class Cliente implements Mostrar {
         this.cuenta = cuenta;
     }
 
-    
     // Método implementado de la interfaz Mostrar
     @Override
     public void mostrarInformacion() {
@@ -107,5 +106,5 @@ public class Cliente implements Mostrar {
         System.out.println("Número de cuenta: " + cuenta.getNumeroCuenta());
         System.out.println("Saldo Actual: $" + cuenta.getSaldoCuenta() + " pesos.");
     }
-    
+
 }

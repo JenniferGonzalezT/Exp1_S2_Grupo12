@@ -6,6 +6,7 @@ package exp1_s2_grupo12;
 
 /**
  * Interfaz implementada en la clase Cliente
+ * 
  * @author jennifer y guiselle
  */
 

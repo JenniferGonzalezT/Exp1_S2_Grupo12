@@ -4,20 +4,18 @@
  */
 package exp1_s2_grupo12;
 
-import java.util.Scanner;
-
 /**
  * Clase abstracta Cuentas
+ * 
  * @author jennifer y guiselle
  */
 
 public abstract class Cuentas {
-    //Atributos
+    // Atributos
     private String numeroCuenta;
     protected int saldoCuenta;
 
-    
-    //Contructores sobrecargados
+    // Contructores sobrecargados
     public Cuentas() {
     }
 
@@ -30,9 +28,8 @@ public abstract class Cuentas {
         this.numeroCuenta = numeroCuenta;
         this.saldoCuenta = saldoCuenta;
     }
-    
-    
-    //Métodos Getter and Setter
+
+    // Métodos Getter and Setter
     public String getNumeroCuenta() {
         return numeroCuenta;
     }
@@ -49,9 +46,10 @@ public abstract class Cuentas {
         this.saldoCuenta = saldoCuenta;
     }
 
-    
-    //Métodos abstractos
-    public abstract void depositar(Scanner scanner);
-    public abstract void girar(Scanner scanner);
+    // Métodos abstractos
+    public abstract void depositar(int monto);
+
+    public abstract void girar(int monto);
+
     public abstract void consultarSaldo();
 }
